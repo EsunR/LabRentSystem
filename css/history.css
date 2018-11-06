@@ -1,12 +1,15 @@
 #banner{
     background: url('../img/history_banner.jpg')
 }
+ul li{
+  list-style: none;
+}
 /* 页面容器大小 */
 #container{
     width: 1200px;
     margin: 0 auto;
     margin-top: 30px;
-    margin-bottom: 80px;
+    margin-bottom: 30px;
 }
 /* 按钮样式 */
 .btn{
@@ -59,3 +62,32 @@
 }
 
 
+#page_box button{
+  background: #1375D4;
+  border: none;
+  color: white;
+  line-height: 40px;
+  width: 70px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+#page_box button:hover{
+  background: rgb(13,90,162);
+}
+
+#page_box{
+  width: 160px;
+  margin: 0 auto;
+}
+#page_btn_pre{
+  margin-right: 15px;
+}
+#page_text{
+  text-align: center;
+  margin-top: 10px;
+  font-size: .5rem;
+  color: rgba(80, 27, 27, 0.8);
+}
+#page_text_1{
+  margin-bottom: 5px;
+}

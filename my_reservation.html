@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>我的预约</title>
+    <script src="lib/jquery-3.2.1.min.js"></script>
+    <script src="js/public.js"></script>
+    <script src="js/my_reservation.js"></script>
+    <link rel="stylesheet" href="css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="css/public.css">
+    <link rel="stylesheet" href="css/my_reservation.css">
+</head>
+<body>
+    <div id="banner">
+        <div id="inner">
+            <div id="title">
+                <span class="mdi mdi-account"></span>
+                <span>我的预约</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 导航 -->
+    <nav id="nav_box">
+        <div id="my_reservation_nav" class="nav_block"><a href="./index.html" class="mdi mdi-home"></a></div>
+        <div id="reservation_nav" class="nav_block"><a href="./reservation.html" class="mdi mdi-beaker"></a></div>
+        <div id="history_nav" class="nav_block"><a href="./history.html" class="mdi mdi-history"></a></div>
+        <div id="top_nav" class="nav_block nav_top"><a href="#" class="mdi mdi-format-vertical-align-top"></a></div>
+    </nav>
+
+    <!-- model -->
+    <div id="model_box">
+        <div id="model">
+            <div id="model_title">提示</div>
+            <div id="model_text">您确定要取消预约吗？</div>
+            <div id="model_btn_box">
+                <button id="model_true" class="btn">确 定</button>
+                <button id="model_false" class="btn">返 回</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 表格部分 -->
+    <!-- Log 10-19 19:57  为取消按钮添加  .btn_table 作为开启模态框的判定依据 -->
+    <div id="container">
+        <table border="1">
+            <tr id="head">
+                <th>仪器名称</th>
+                <th>预约日期</th>
+                <th>负责人</th>
+                <th>联系电话</th>
+                <th>预约时间</th>
+                <th>样本数量</th>
+                <th>取消预约</th>
+            </tr>
+            <tr>
+                <td>WD120型李延富</td>
+                <td class="light">2018-10-8 14:00-16:00</td>
+                <td>姬广锐</td>
+                <td class="light">15670023772</td>
+                <td>2018-10-8 14:00-16:00</td>
+                <td class="light">1</td>
+                <td class="td_last"><button class="btn btn_table">取 消</button></td>
+            </tr>
+            <tr>
+                <td>WD121型李延富</td>
+                <td class="light">2018-10-8 14:00-16:00</td>
+                <td>姬广锐</td>
+                <td class="light">15670023772</td>
+                <td>2018-10-8 14:00-16:00</td>
+                <td class="light">1</td>
+                <td class="td_last"><button class="btn btn_table">取 消</button></td>
+            </tr>
+            <tr>
+                <td>WD122型李延富</td>
+                <td class="light">2018-10-8 14:00-16:00</td>
+                <td>姬广锐</td>
+                <td class="light">15670023772</td>
+                <td>2018-10-8 14:00-16:00</td>
+                <td class="light">1</td>
+                <td class="td_last"><button class="btn btn_table">取 消</button></td>
+            </tr>
+            
+        </table>
+    </div>
+</body>
+</html>

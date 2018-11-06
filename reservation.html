@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>仪器预约</title>
+  <script src="lib/jquery-3.2.1.min.js"></script>
+  <script src="js/public.js"></script>
+  <script src="js/reservation.js"></script>
+  <link rel="stylesheet" href="css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="css/public.css">
+  <link rel="stylesheet" href="css/reservation.css">
+</head>
+
+<body>
+  <div id="banner">
+    <div id="inner">
+      <div id="title">
+        <span class="mdi mdi-beaker"></span>
+        <span>仪器预约</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- nav bar -->
+  <nav id="nav_box">
+    <div id="my_reservation_nav" class="nav_block"><a href="./index.html" class="mdi mdi-home"></a></div>
+    <div id="my_reservation_nav" class="nav_block"><a href="./my_reservation.html" class="mdi mdi-account"></a></div>
+    <div id="history_nav" class="nav_block"><a href="./history.html" class="mdi mdi-history"></a></div>
+    <div id="top_nav" class="nav_block nav_top"><a href="#" class="mdi mdi-format-vertical-align-top"></a></div>
+  </nav>
+
+  <!-- model: detail message -->
+  <div class="model_auto_box" id="model_show_detail">
+    <div class="model_auto">
+      <div class="model_auto_title">
+        <span>详细信息</span>
+        <span class="mdi mdi-close model_auto_close"></span>
+      </div>
+      <div class="model_auto_content">
+        <div class="content_container clear">
+          <span class="content_title">仪器名称：</span>
+          <span class="content_text">WD240型李延富</span>
+        </div>
+        <div class="content_container clear">
+          <span class="content_title">产地国别：</span>
+          <span class="content_text">中国 李家屯</span>
+        </div>
+        <div class="content_container clear">
+          <span class="content_title">生产制造商：</span>
+          <span class="content_text">李延富生产制造基金会</span>
+        </div>
+        <div class="content_container clear">
+          <span class="content_title">主要功能：</span>
+          <span class="content_text">这是一个可以用来租借的李延富啊。包夜10元/晚，包天20元/天，特别能吃，记得喂好。饿出毛病或者意外丢失需要赔偿100元。最大文字最大文字最大文字最大文字最大文字。</span>
+        </div>
+        <div class="content_container clear">
+          <span class="content_title">检测要求：</span>
+          <span class="content_text">要会照顾好李延富</span>
+        </div>
+        <div class="content_container clear">
+          <span class="content_title">服务内容：</span>
+          <span class="content_text">不可描述</span>
+        </div>
+        <div class="content_container clear">
+          <span class="content_title">规格型号：</span>
+          <span class="content_text">WD240</span>
+        </div>
+        <div class="content_container clear">
+          <span class="content_title">科学领域：</span>
+          <span class="content_text">服务学</span>
+        </div>
+        <div class="content_container clear">
+          <span class="content_title">对内收费标准：</span>
+          <span class="content_text">10元/天</span>
+        </div>
+        <div class="content_container clear">
+          <span class="content_title">对外收费标准：</span>
+          <span class="content_text">8.9元/天</span>
+        </div>
+        <div class="content_container clear">
+          <span class="content_title">仪器负责人：</span>
+          <span class="content_text">谁预约算谁的</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- model: reservation panel -->
+  <div class="model_auto_box" id="reservation_panel" style="display: block; opacity: 1;">
+    <div class="model_auto" style="height: 630px;">
+      <div class="model_auto_title">
+        <span>请选择预约时间段（最近7天）</span>
+        <span class="mdi mdi-close model_auto_close"></span>
+      </div>
+      <div class="model_auto_content">
+
+        <div id="now_time" class="clear">
+          <div class="time_text" id="now_time_text">00:00</div>
+          <div class="mdi mdi-menu-right"></div>
+          <div id="line"></div>
+          <div class="mdi mdi-menu-left"></div>
+          <div class="time_text" id="time_now_text">Now</div>
+        </div>
+
+        <div class="time_bar" id="time_bar_morning">
+          <div class="time_tag time_1">00:00</div>
+          <div class="time_tag time_2">00:00</div>
+          <div class="time_tag time_3">00:00</div>
+        </div>
+
+        <div class="time_bar" id="time_bar_afternoon">
+          <div class="time_tag time_1">00:00</div>
+          <div class="time_tag time_2">00:00</div>
+          <div class="time_tag time_3">00:00</div>
+        </div>
+
+        <div class="reservation_table">
+
+          <div class="model_row clear progress_bar_box">
+            <div class="progress_bar"></div>
+            <div class="progress_bar"></div>
+            <div class="progress_bar"></div>
+            <div class="progress_bar"></div>
+            <div class="progress_bar"></div>
+            <div class="progress_bar"></div>
+            <div class="progress_bar"></div>
+          </div>
+
+          <div class="model_row clear">
+            <div class="date">
+              <span class="week">星期一</span>
+              <span class="day">DATE</span>
+            </div>
+            <div class="date">
+              <span class="week">星期二</span>
+              <span class="day">DATE</span>
+            </div>
+            <div class="date">
+              <span class="week">星期三</span>
+              <span class="day">DATE</span>
+            </div>
+            <div class="date">
+              <span class="week">星期四</span>
+              <span class="day">DATE</span>
+            </div>
+            <div class="date">
+              <span class="week">星期五</span>
+              <span class="day">DATE</span>
+            </div>
+            <div class="date">
+              <span class="week">星期六</span>
+              <span class="day">DATE</span>
+            </div>
+            <div class="date">
+              <span class="week">星期日</span>
+              <span class="day">DATE</span>
+            </div>
+          </div>
+
+          <div class="row clear" id="morning">
+
+            <div class="select">
+              <div class="res aviliable t-8"></div>
+              <div class="res"></div>
+              <div class="res"></div>
+              <div class="res"></div>
+            </div>
+
+            <div class="select">
+
+            </div>
+
+            <div class="select">
+
+            </div>
+
+            <div class="select">
+
+            </div>
+
+            <div class="select">
+
+            </div>
+
+            <div class="select">
+
+            </div>
+
+            <div class="select">
+
+            </div>
+
+          </div>
+
+          <div class="row clear" id="afternoon">
+            <div class="select">
+
+            </div>
+            <div class="select">
+
+            </div>
+            <div class="select">
+
+            </div>
+            <div class="select">
+
+            </div>
+            <div class="select">
+
+            </div>
+            <div class="select">
+
+            </div>
+            <div class="select">
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- model: reservation card -->
+
+  <div id="container" class="clear">
+
+    <!-- =====模板===== -->
+    <div class="reservation_card">
+      <!-- 仪器名称 -->
+      <div class="card_title">WD240型李延富</div>
+
+      <div class="card_description">
+        <div class="card_subtitle">仪器说明</div>
+        <!-- 仪器的说明内容 最大85个字符 -->
+        <div class="description_text">
+          这是一个可以用来租借的李延富啊。包夜10元/晚，包天20元/天，特别能吃，记得喂好。饿出毛病或者意外丢失需要赔偿100元。最大文字最大文字最大文字最大文字最大文字三二一蛤一二三一一一咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦
+        </div>
+        <div class="show_detail">
+          <span class="mdi mdi-file-find"></span> 显示详细信息
+        </div>
+      </div>
+      <div class="card_other clear">
+        <div class="card_other_left">
+          <div class="lab">
+            <i class="mdi mdi-home"></i>
+            <!-- 实验室信息 -->
+            实验室 : <span class="lab_text">A06-403</span>
+          </div>
+          <div class="admin">
+            <i class="mdi mdi-account"></i>
+            <!-- 负责人信息 -->
+            负责人 : <span class="lab_text">姬广锐</span>
+          </div>
+          <div class="phone">
+            <i class="mdi mdi-phone-classic"></i>
+            <!-- 联系电话 -->
+            电话 : <span class="lab_text">15670023772</span>
+          </div>
+        </div>
+        <div class="card_other_right">
+          <!-- 预约按钮 -->
+          <input type="submit" value="预 约">
+        </div>
+      </div>
+    </div>
+    <!-- =====模板===== -->
+
+    <!-- =====模板===== -->
+    <div class="reservation_card">
+      <!-- 仪器名称 -->
+      <div class="card_title">WD240型李延富</div>
+
+      <div class="card_description">
+        <div class="card_subtitle">仪器说明</div>
+        <!-- 仪器的说明内容 最大85个字符 -->
+        <div class="description_text">
+          这是一个可以用来租借的李延富啊。包夜10元/晚，包天20元/天，特别能吃，记得喂好。饿出毛病或者意外丢失需要赔偿100元。最大文字最大文字最大文字最大文字最大文字三二一蛤一二三一一一咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦
+        </div>
+        <div class="show_detail">
+          <span class="mdi mdi-file-find"></span> 显示详细信息
+        </div>
+      </div>
+      <div class="card_other clear">
+        <div class="card_other_left">
+          <div class="lab">
+            <i class="mdi mdi-home"></i>
+            <!-- 实验室信息 -->
+            实验室 : <span class="lab_text">A06-403</span>
+          </div>
+          <div class="admin">
+            <i class="mdi mdi-account"></i>
+            <!-- 负责人信息 -->
+            负责人 : <span class="lab_text">姬广锐</span>
+          </div>
+          <div class="phone">
+            <i class="mdi mdi-phone-classic"></i>
+            <!-- 联系电话 -->
+            电话 : <span class="lab_text">15670023772</span>
+          </div>
+        </div>
+        <div class="card_other_right">
+          <!-- 预约按钮 -->
+          <input type="submit" value="预 约">
+        </div>
+      </div>
+    </div>
+    <!-- =====模板===== -->
+
+    <!-- =====模板===== -->
+    <div class="reservation_card">
+      <!-- 仪器名称 -->
+      <div class="card_title">WD240型李延富</div>
+
+      <div class="card_description">
+        <div class="card_subtitle">仪器说明</div>
+        <!-- 仪器的说明内容 最大85个字符 -->
+        <div class="description_text">
+          这是一个可以用来租借的李延富啊。包夜10元/晚，包天20元/天，特别能吃，记得喂好。饿出毛病或者意外丢失需要赔偿100元。最大文字最大文字最大文字最大文字最大文字三二一蛤一二三一一一咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦
+        </div>
+        <div class="show_detail">
+          <span class="mdi mdi-file-find"></span> 显示详细信息
+        </div>
+      </div>
+      <div class="card_other clear">
+        <div class="card_other_left">
+          <div class="lab">
+            <i class="mdi mdi-home"></i>
+            <!-- 实验室信息 -->
+            实验室 : <span class="lab_text">A06-403</span>
+          </div>
+          <div class="admin">
+            <i class="mdi mdi-account"></i>
+            <!-- 负责人信息 -->
+            负责人 : <span class="lab_text">姬广锐</span>
+          </div>
+          <div class="phone">
+            <i class="mdi mdi-phone-classic"></i>
+            <!-- 联系电话 -->
+            电话 : <span class="lab_text">15670023772</span>
+          </div>
+        </div>
+        <div class="card_other_right">
+          <!-- 预约按钮 -->
+          <input type="submit" value="预 约">
+        </div>
+      </div>
+    </div>
+    <!-- =====模板===== -->
+
+
+
+
+  </div>
+</body>
+
+</html>

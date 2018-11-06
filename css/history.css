@@ -1,0 +1,61 @@
+#banner{
+    background: url('../img/history_banner.jpg')
+}
+/* 页面容器大小 */
+#container{
+    width: 1200px;
+    margin: 0 auto;
+    margin-top: 30px;
+    margin-bottom: 80px;
+}
+/* 按钮样式 */
+.btn{
+    background: #0C75D6;
+}
+.btn:hover{
+    background: #085AA4;
+}
+
+/* 自定义模态框 */
+#model{
+    top: 100px;
+    bottom: auto;
+    height: 140px;
+}
+#model_text{
+    line-height: 40px;
+}
+#model_list_box{
+    background: white;
+    border-radius: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    position: relative;
+}
+#model_list{
+    margin: 0 20px;
+    margin-top: -10px;
+}
+#model_list a{
+    display: block;
+    font-size: 1rem;
+    background: rgba(0, 0, 0, 0.06);
+    margin-top: 10px;
+    padding: 0 10px;
+    line-height: 40px;
+    border-radius: 5px;
+    color: rgba(0, 0, 0, 0.6);
+}
+#model_list a:hover{
+    background: rgba(0, 0, 0, 0.1);
+    font-weight: bold;
+}
+#model_false{
+    position: relative;
+    font-size: 1rem;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    left: 390px;
+}
+
+

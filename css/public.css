@@ -1,0 +1,199 @@
+/* clear default setting */
+body,ul,ol,p,h1,h2,h3,h4{ padding:0; margin:0; font-family: "微软雅黑"}
+a{ text-decoration: none; }
+img{ border:none; }
+input{ outline: none; }
+button{ outline: none; }
+/* clear float */
+.clear:after{ content:""; display:block; clear:both; }
+.clear{ zoom:1; }
+/* font */
+@font-face{
+    font-family: "md_font";
+    src: url('../fonts/materialdesignicons-webfont.eot') format('embedded-opentype'),
+    url('../fonts/materialdesignicons-webfont.svg') format('svg'),
+    url('../fonts/materialdesignicons-webfont.ttf') format('truetype'),
+    url('../fonts/materialdesignicons-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body{
+    background-color: #F5F5F5;
+}
+/* 顶部banner */
+#banner{
+    width: 1200px;
+    height: 250px;
+    background: #000000;
+    margin: 0 auto;
+    border-radius: 10px;
+    margin-top: 20px;
+    color: white;
+    overflow: hidden;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.8);
+}
+#inner{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.6);
+}
+#title{
+    text-align: center;
+    font-size: 4rem;
+    padding-top: 65px;
+    padding-bottom: 55px;
+    opacity: 0.9;
+    border-bottom: 20px solid rgb(255, 255, 255);
+}
+
+/* nav bar */
+#nav_box{
+    width: 70px;
+    height: 310px;
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+}
+
+.nav_block{
+    width: 60px;
+    height: 60px;
+    margin-top: 10px;
+    background: rgba(0,0,0,0.3);
+    opacity: 0.5;
+}
+.nav_block:hover{
+    width: 70px;
+    height: 70px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.6);
+    position: relative;
+    right: 5px;
+}
+.nav_block a{
+    font-size: 2rem;
+    color: rgba(0,0,0,1);
+    display: block;
+    line-height: 60px;
+    text-align: center;
+}
+.nav_block a:hover{
+    line-height: 70px;
+}
+.nav_top{
+    opacity: 1;
+    background: #353432;
+}
+.nav_top a{
+    color: white;
+}
+
+
+/* table */
+table{
+    width: 1200px;
+    text-align: center;
+    border: none;
+    border-spacing: 0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+td, th{
+    border: none;
+    padding: 0;
+}
+tr{
+    line-height: 60px;
+    background: rgba(0,0,0,0.1);
+    margin-top: 20px;
+}
+
+#head{
+    background: #353432;
+}
+#head th{
+    font-size: 1.25rem;
+    color: white;
+    font-weight: lighter;
+    line-height: 80px;
+}
+
+tr .light{
+    background: rgba(0,0,0,0.05);
+}
+tr:hover{
+    background: #BDBDBD;
+    color: #353432;
+}
+td{
+    border-bottom: rgba(0,0,0,0.05) solid 1px;
+    cursor: default;
+}
+
+/* button */
+.btn{
+    border: none;
+    background: #DB3544;
+    width: 70px;
+    height: 40px;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.btn:hover{
+    background: rgb(199, 35, 50);
+}
+
+#model_box{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background: rgba(0, 0, 0, 0.5);
+    top: 0;
+    display: none;
+    opacity: 0;
+}
+
+/* mdoel */
+#model{
+    width: 500px;
+    height: 200px;
+    background: white;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    border-radius: 10px;
+}
+#model_title{
+    font-size: 1.5rem;
+    color: rgba(0, 0, 0, 0.7);
+    margin: 0 20px;
+    margin-top: 15px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    padding-bottom: 10px;
+}
+#model_text{
+    font-size: 1.25rem;
+    color: rgba(0, 0, 0, 0.7);
+    line-height: 60px;
+    margin: 0  20px;
+}
+
+#model_btn_box button{
+    font-size: 1rem;
+}
+#model_btn_box{
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+}
+#model_false{
+    margin-left: 20px;
+    background: rgba(0, 0, 0, 0.5);
+}
+#model_false:hover{
+    background: rgba(0, 0, 0, 0.7);
+}

@@ -1,0 +1,356 @@
+#banner{
+    background: url('../img/reservation_banner.jpg')
+}
+
+#container{
+    width: 1215px;
+    margin: 0 auto;
+    margin-top: 30px;
+    margin-bottom: 80px;
+}
+
+.reservation_card{
+    width: 390px;
+    height: 400px;
+    background: white;
+    margin: 10px 7.5px;
+    float: left;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+    overflow: hidden;
+}
+
+.card_title{
+    height: 60px;
+    color: white;
+    background: #353432;
+    font-size: 1.5rem;
+    line-height: 60px;
+    padding: 0 20px;
+    font-weight: 100;
+}
+.card_description{
+    padding: 10px 20px;
+    /* 卡片信息的高度 */
+    height: 200px;
+    padding-bottom: 0;
+}
+.card_subtitle{
+    color: rgba(0,0,0,0.7);
+    font-weight: bold;
+    font-size: 1.25rem;
+}
+.description_text{
+    margin-top: 10px;
+    line-height: 30px;
+    text-align: justify;
+    color: rgba(0,0,0,0.7);
+    font-size: 1rem;
+}
+.show_detail{
+    font-size: 1rem;
+    margin-top: 10px;
+    text-align: right;
+    color: rgba(0,0,0,0.5);
+    border-radius: 5px;
+    cursor: pointer;
+}
+.show_detail:hover{
+    color: rgba(0,0,0,0.8);
+}
+.card_other{
+    color: rgba(0,0,0,0.5);
+    margin: 0 20px;
+    border-top: 1px solid rgba(0,0,0,0.2);
+    padding-top: 10px;
+}
+
+.card_other .card_other_left div{
+    line-height: 30px;
+}
+
+.card_other_left, .card_other_right{
+    float: left;
+}
+
+.card_other_left{
+    width: 220px;
+}
+
+.card_other_right{
+    width: 130px;
+    height: 90px;
+    position: relative;
+}
+.card_other_right input{
+    display: block;
+    width: 100px;
+    height: 50px;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+    margin: auto 0;
+    background: #353432;
+    border: none;
+    color: white;
+    font-size: 1.25rem;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.card_other_right input:hover{
+    box-shadow: 0 0 5px rgba(0,0,0,0.6);
+}
+
+/* model: detail message */
+.model_auto_box{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 1;
+    color: rgba(0,0,0,0.8);
+    display: none;
+    opacity: 0;
+    position: fixed;
+}
+.model_auto{
+    position: absolute;
+    width: 600px;
+    background: white;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 5rem;
+    border-radius: 10px;
+}
+.model_auto_title{
+    font-size: 1.5rem;
+    line-height: 50px;
+    margin: 0 20px;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    margin-top: 10px;
+}
+.mdi-close{
+    float: right;
+    cursor: pointer;
+}
+.model_auto_content{
+    margin: 20px;
+    padding: 0 20px;
+    max-height: 500px;
+    overflow-y: auto;
+}
+.content_container{
+    margin:15px 0;
+}
+.content_title{
+    font-size: 1rem;
+    color: rgba(0, 0, 0, 0.5);
+    display: block;
+    width: 120px;
+    float: left;
+    line-height: 30px;
+}
+.content_text{
+    display: block;
+    width: 380px;
+    float: left;
+    font-size: 1rem;
+    line-height: 30px;
+    text-align: justify
+}
+
+/* model: reservation panel */
+#reservation_panel .model_auto{
+    width: 920px;
+}
+#reservation_panel .model_auto_content{
+  padding: 0;
+  overflow: inherit;
+}
+
+  /* 当前时间指示标 */
+#now_time{
+  position: absolute;
+  left: 35px;
+  top: 167px;
+  color: rgba(0,0,0,0.5);
+  display: none;
+}
+#now_time_text{
+  opacity: 0;
+}
+.time_text{
+  font-size: 0.5rem;
+  float: left;
+  line-height: 20px;
+}
+#time_now_text{
+  margin-left: -15px;
+  cursor: pointer;
+  background: rgba(0, 0, 0, 0.1);
+  font-weight: bold;
+  width: 40px;
+  text-align: center;
+  border-radius: 5px;
+}
+#now_time .mdi{
+  width: 32px;
+  float: left;
+  line-height: 20px;
+  font-size: 1.5rem;
+  margin-left: -8px;
+}
+#line{
+  width: 737px;
+  float: left;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.25);
+  position: relative;
+  top: 9px;
+  margin-right: 5px;
+  z-index: 2;
+}
+  /* 时间进度条 */
+.time_bar{
+  background: rgba(0,0,0,0.1);
+  width: 10px;
+  height: 200px;
+  border-radius: 2px;
+  position: absolute;
+  left: 75px;
+}
+#time_bar_morning{
+  top: 167px;
+}
+#time_bar_afternoon{
+  top: 389px;
+}
+.time_tag{
+  position: absolute;
+  font-size: 0.5rem;
+  line-height: 20px;
+  left: -40px;
+  color: rgba(0,0,0,0.5);
+}
+.time_1{
+  top: -10px;
+}
+.time_2{
+  top: 90px;
+}
+.time_3{
+  top: 190px;
+}
+
+  /* 预约时间表 */
+.reservation_table{
+  width: 735px;
+  margin-left: 70px;
+}
+.model_row{
+    box-sizing: content-box;
+    position: relative;
+    width: 735px;
+}
+    /* 当前周进度条 */
+.progress_bar_box{
+  border-radius: 5px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+.progress_bar{
+  float: left;
+  width: 105px;
+  height: 25px;
+  text-align: center;
+  font-size: 0.5rem;
+  line-height: 25px;
+  color: rgba(0, 0, 0, 0.5);
+}
+.this_week{
+  background: rgba(0,0,0,0.2);
+}
+.next_week{
+  background: rgba(0,0,0,0.1);
+}
+.date{
+    float: left;
+    width: 105px;
+    margin-bottom: 10px;
+}
+.date span{
+    display: block;
+    text-align: center;
+}
+.week{
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+.day{
+  font-size: 0.5rem;
+}
+    /* 单个预约按钮 */
+#morning, #afternoon{
+  width: 735px;
+  height: 200px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  background: rgba(0,0,0,0.05);
+  border: 1px solid rgba(0,0,0,0.1);
+  overflow: hidden;
+}
+.select{
+  float: left;
+  width: 105px;
+  height: 200px;
+  box-sizing: border-box;
+  position: relative;
+  border-radius: 5px;
+}
+.select div{
+  border-radius: 5px;
+}
+
+.select span{
+  width: 95px;
+  height: 21px;
+  text-align: center;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.7);
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.res{
+  width: 95px;
+  height: 40px;
+  margin: 5px;
+  background: #F1F1F1;
+  position: relative;
+  float: left;
+}
+/* .aviliable 表示当前时间段可预约 */
+/* .longtime 表示当前时间段为一个长时间区间 */
+.aviliable{
+  background: #D7D7D7;
+  cursor: pointer;
+}
+.t-2{
+  height: 90px;
+}
+.t-4{
+  height: 190px;
+}
+.t-8{
+  height: 400px;
+}
+
+

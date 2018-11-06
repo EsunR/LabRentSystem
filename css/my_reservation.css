@@ -1,0 +1,11 @@
+#banner{
+    background: url('../img/my_reservation_banner.jpg')
+}
+
+#container{
+    width: 1200px;
+    margin: 0 auto;
+    margin-top: 30px;
+    margin-bottom: 80px;
+}
+

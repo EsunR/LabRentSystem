@@ -42,6 +42,9 @@ $(document).ready(function () {
     return false;
   })
 
+
+
+  
   // 预约模态框显示日期
   function get_date_json(AddDayCount) {
     let dd = new Date();
@@ -58,7 +61,7 @@ $(document).ready(function () {
   }
   // 将最近7天的日期信息按照 星期顺序（从周日开始） 存放在futer_date数组中
   var future_date = new Array(7);
-  for (var i = 0; i < 7; i++) {
+  for (var i = 1; i < 8; i++) {
     let index = get_date_json(i).week_index;
     future_date[index] = get_date_json(i);
   }
@@ -68,13 +71,13 @@ $(document).ready(function () {
   // 记录今天的week_index(如周三的week_index为3，做判断是为了要设置周日的week_index为7)
   var today_index = get_date_json(0).week_index == 0 ? 7 : get_date_json(0).week_index;
   // 渲染日期进度条
-  $(".progress_bar")[today_index - 1].innerHTML = '本周预约 <span class="mdi mdi-arrow-right-bold"></span>'
+  $(".progress_bar")[today_index].innerHTML = '本周预约 <span class="mdi mdi-arrow-right-bold"></span>'
   if (today_index - 2 >= 0) {
-    $(".progress_bar")[today_index - 2].innerHTML = '<span class="mdi mdi-arrow-left-bold"></span> 下周预约'
+    $(".progress_bar")[today_index - 1].innerHTML = '<span class="mdi mdi-arrow-left-bold"></span> 下周预约'
   }
   for (var i = 0; i < 7; i++) {
     let index = today_index - 1;
-    if (i >= index) {
+    if (i >= index + 1) {
       $(".progress_bar")[i].className += ' ' + 'this_week';
     } else {
       $(".progress_bar")[i].className += ' ' + 'next_week';
@@ -86,76 +89,6 @@ $(document).ready(function () {
     let [month, day] = [future_date[i].month, future_date[i].day];
     $(".day")[i].innerText = month + '月' + day + '日';
   }
-  // 渲染预约项按钮
-  $(".select").each(function () {
-    if ($(this).hasClass('res_1') || $(this).hasClass('res_2') || $(this).hasClass('res_all')) {
-      $(this).addClass('aviliable');
-    }
-  })
-  $(".aviliable").html('<span>可预约</span>');
-  $(".aviliable").hover(function () {
-    $(this).css('background', '#FF5722');
-    $(this).children('span').css('color', 'white');
-  }, function () {
-    $(this).css('background', '#D8D8D8');
-    $(this).children('span').css('color', 'rgba(0, 0, 0, 0.7)');
-  })
-
-  // 渲染规则，
-  // 第一个字段：1表示上午，2表示下午
-  // 第二个字段：1表示第一个时间段可预约，2表示第二个时间段可预约，12表示需要预约两个时间段
-
-  // var res_json = {
-  //   Mon: ['1-1', '1-2', '2-12'],
-  //   Tue: ['1-2', '2-12'],
-  //   Wed: ['1-1', '1-2', '2-1', '2-2'],
-  //   Thur: ['1-1', '1-2', '2-12'],
-  //   Fri: ['1-2', '2-12'],
-  //   Sat: ['1-1', '1-2', '2-1', '2-2'],
-  //   Sun: []
-  // }
-
-  // for (var key in res_json) {
-  //   switch (key) {
-  //     case 'Mon':
-  //       ParseKeyValue(key);
-  //       break;
-  //     case 'Tue':
-  //       console.log(key);
-  //       break;
-  //     case 'Wed':
-  //       console.log(key);
-  //       break;
-  //     case 'Thur':
-  //       console.log(key);
-  //       break;
-  //     case 'Fri':
-  //       console.log(key);
-  //       break;
-  //     case 'Sat':
-  //       console.log(key);
-  //       break;
-  //     case 'Sun':
-  //       console.log(key);
-  //       break;
-  //   }
-  // }
-
-  // function RederBtn(index,key) {  
-  //   let i = index;
-  //   // 渲染上午预约按钮
-  //   let $morning_group = $('#morning').children('.select').eq(i).children('.res');
-  // }
-  // function ParseKeyValue(key) {
-  //   console.log(res_json[key]);
-  // }
-  // function RenderEngine(rule_str){
-  //   let rule_arr = rule_str.split("-");
-  //   return rule_arr;
-  // }
-  // console.log(RenderEngine('1-1'));
-  
-
   // 时间进度条
   var time_flag = 0
   function parseTime(parse_time) {

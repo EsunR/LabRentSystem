@@ -211,7 +211,7 @@
   position: relative;
   top: 9px;
   margin-right: 5px;
-  z-index: 2;
+  z-index: 9;
 }
   /* 时间进度条 */
 .time_bar{
@@ -300,7 +300,6 @@
   border-radius: 5px;
   background: rgba(0,0,0,0.05);
   border: 1px solid rgba(0,0,0,0.1);
-  overflow: hidden;
 }
 .select{
   float: left;
@@ -337,20 +336,22 @@
   position: relative;
   float: left;
 }
-/* .aviliable 表示当前时间段可预约 */
-/* .longtime 表示当前时间段为一个长时间区间 */
+
 .aviliable{
-  background: #D7D7D7;
+  background: #D8D8D8;
   cursor: pointer;
 }
-.t-2{
+.r-1{
+  height: 40px;
+}
+.r-2{
   height: 90px;
 }
-.t-4{
+.r-4{
   height: 190px;
 }
-.t-8{
-  height: 400px;
+.r-8{
+  height: 412px;
 }
 
 

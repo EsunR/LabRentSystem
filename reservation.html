@@ -9,6 +9,7 @@
   <script src="lib/jquery-3.2.1.min.js"></script>
   <script src="js/public.js"></script>
   <script src="js/reservation.js"></script>
+  <script src="js/res_model.js"></script>
   <link rel="stylesheet" href="css/materialdesignicons.min.css">
   <link rel="stylesheet" href="css/public.css">
   <link rel="stylesheet" href="css/reservation.css">
@@ -162,61 +163,53 @@
 
           <div class="row clear" id="morning">
 
-            <div class="select">
-              <div class="res aviliable t-8"></div>
-              <div class="res"></div>
-              <div class="res"></div>
-              <div class="res"></div>
+            <div class="select" pos="11">
             </div>
 
-            <div class="select">
-
+            <div class="select" pos="21">
             </div>
 
-            <div class="select">
-
+            <div class="select" pos="31">
             </div>
 
-            <div class="select">
-
+            <div class="select" pos="41">
             </div>
 
-            <div class="select">
-
+            <div class="select" pos="51">
             </div>
 
-            <div class="select">
-
+            <div class="select" pos="61">
             </div>
 
-            <div class="select">
-
+            <div class="select" pos="71">
             </div>
 
           </div>
 
           <div class="row clear" id="afternoon">
-            <div class="select">
 
+            <div class="select" pos="12">
             </div>
-            <div class="select">
 
+            <div class="select" pos="22">
             </div>
-            <div class="select">
 
+            <div class="select" pos="32">
             </div>
-            <div class="select">
 
+            <div class="select" pos="42">
+              
             </div>
-            <div class="select">
 
+            <div class="select" pos="52">
             </div>
-            <div class="select">
 
+            <div class="select" pos="62">
             </div>
-            <div class="select">
 
+            <div class="select" pos="72">
             </div>
+
           </div>
 
         </div>
@@ -263,96 +256,11 @@
         </div>
         <div class="card_other_right">
           <!-- 预约按钮 -->
-          <input type="submit" value="预 约">
+          <input class="res_card_btn" type="submit" value="预 约">
         </div>
       </div>
     </div>
     <!-- =====模板===== -->
-
-    <!-- =====模板===== -->
-    <div class="reservation_card">
-      <!-- 仪器名称 -->
-      <div class="card_title">WD240型李延富</div>
-
-      <div class="card_description">
-        <div class="card_subtitle">仪器说明</div>
-        <!-- 仪器的说明内容 最大85个字符 -->
-        <div class="description_text">
-          这是一个可以用来租借的李延富啊。包夜10元/晚，包天20元/天，特别能吃，记得喂好。饿出毛病或者意外丢失需要赔偿100元。最大文字最大文字最大文字最大文字最大文字三二一蛤一二三一一一咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦
-        </div>
-        <div class="show_detail">
-          <span class="mdi mdi-file-find"></span> 显示详细信息
-        </div>
-      </div>
-      <div class="card_other clear">
-        <div class="card_other_left">
-          <div class="lab">
-            <i class="mdi mdi-home"></i>
-            <!-- 实验室信息 -->
-            实验室 : <span class="lab_text">A06-403</span>
-          </div>
-          <div class="admin">
-            <i class="mdi mdi-account"></i>
-            <!-- 负责人信息 -->
-            负责人 : <span class="lab_text">姬广锐</span>
-          </div>
-          <div class="phone">
-            <i class="mdi mdi-phone-classic"></i>
-            <!-- 联系电话 -->
-            电话 : <span class="lab_text">15670023772</span>
-          </div>
-        </div>
-        <div class="card_other_right">
-          <!-- 预约按钮 -->
-          <input type="submit" value="预 约">
-        </div>
-      </div>
-    </div>
-    <!-- =====模板===== -->
-
-    <!-- =====模板===== -->
-    <div class="reservation_card">
-      <!-- 仪器名称 -->
-      <div class="card_title">WD240型李延富</div>
-
-      <div class="card_description">
-        <div class="card_subtitle">仪器说明</div>
-        <!-- 仪器的说明内容 最大85个字符 -->
-        <div class="description_text">
-          这是一个可以用来租借的李延富啊。包夜10元/晚，包天20元/天，特别能吃，记得喂好。饿出毛病或者意外丢失需要赔偿100元。最大文字最大文字最大文字最大文字最大文字三二一蛤一二三一一一咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦咦
-        </div>
-        <div class="show_detail">
-          <span class="mdi mdi-file-find"></span> 显示详细信息
-        </div>
-      </div>
-      <div class="card_other clear">
-        <div class="card_other_left">
-          <div class="lab">
-            <i class="mdi mdi-home"></i>
-            <!-- 实验室信息 -->
-            实验室 : <span class="lab_text">A06-403</span>
-          </div>
-          <div class="admin">
-            <i class="mdi mdi-account"></i>
-            <!-- 负责人信息 -->
-            负责人 : <span class="lab_text">姬广锐</span>
-          </div>
-          <div class="phone">
-            <i class="mdi mdi-phone-classic"></i>
-            <!-- 联系电话 -->
-            电话 : <span class="lab_text">15670023772</span>
-          </div>
-        </div>
-        <div class="card_other_right">
-          <!-- 预约按钮 -->
-          <input type="submit" value="预 约">
-        </div>
-      </div>
-    </div>
-    <!-- =====模板===== -->
-
-
-
 
   </div>
 </body>

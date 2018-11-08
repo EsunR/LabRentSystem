@@ -25,7 +25,7 @@
     </div>
   </div>
 
-  <!-- nav bar -->
+  <!-- 导航 -->
   <nav id="nav_box">
     <div id="my_reservation_nav" class="nav_block"><a href="./index.html" class="mdi mdi-home"></a></div>
     <div id="my_reservation_nav" class="nav_block"><a href="./my_reservation.html" class="mdi mdi-account"></a></div>
@@ -90,14 +90,38 @@
   </div>
 
   <!-- model: reservation panel -->
-  <div class="model_auto_box" id="reservation_panel" style="display: block; opacity: 1;">
+  <div class="model_auto_box" id="reservation_panel">
     <div class="model_auto" style="height: 630px;">
       <div class="model_auto_title">
-        <span>请选择预约时间段（最近7天）</span>
+        <span>请选择预约时间段（仅可预约从明天开始最近七天的仪器）</span>
         <span class="mdi mdi-close model_auto_close"></span>
       </div>
       <div class="model_auto_content">
 
+        <!-- 二级提交模态框 -->
+        <div class="model_auto_box" id="model_submit_box">
+          <div id="model_submit">
+            <div class="model_auto_title">
+              <span>请输入预约样本数</span>
+              <span class="mdi mdi-close model_auto_close"></span>
+            </div>
+
+            <div class="model_auto_content">
+              <div class="res_message">
+                当前可预约样本数为：<span id="res_count">NAN</span>
+              </div>
+              <div class="res_message">
+                您预约的时间为：<span id="res_time">NAN</span>
+              </div>
+              <div id="res_btn_box">
+                <input id="res_sure_text" type="text">
+                <input id="res_sure_btn" type="button" value="提交预约">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 时间指示器 -->
         <div id="now_time" class="clear">
           <div class="time_text" id="now_time_text">00:00</div>
           <div class="mdi mdi-menu-right"></div>
@@ -106,18 +130,21 @@
           <div class="time_text" id="time_now_text">Now</div>
         </div>
 
+        <!-- 时间标识 (上午)-->
         <div class="time_bar" id="time_bar_morning">
           <div class="time_tag time_1">00:00</div>
           <div class="time_tag time_2">00:00</div>
           <div class="time_tag time_3">00:00</div>
         </div>
 
+        <!-- 时间标识（下午） -->
         <div class="time_bar" id="time_bar_afternoon">
           <div class="time_tag time_1">00:00</div>
           <div class="time_tag time_2">00:00</div>
           <div class="time_tag time_3">00:00</div>
         </div>
 
+        <!-- 预约表格 -->
         <div class="reservation_table">
 
           <div class="model_row clear progress_bar_box">
@@ -198,7 +225,7 @@
             </div>
 
             <div class="select" pos="42">
-              
+
             </div>
 
             <div class="select" pos="52">
@@ -213,12 +240,13 @@
           </div>
 
         </div>
+
       </div>
     </div>
   </div>
 
-  <!-- model: reservation card -->
 
+  <!-- 信息卡片 -->
   <div id="container" class="clear">
 
     <!-- =====模板===== -->
@@ -263,6 +291,16 @@
     <!-- =====模板===== -->
 
   </div>
+
+
+  <!-- 提醒弹窗 -->
+  <div id="alert_box">
+    <div id="alert">
+      警告信息
+    </div>
+  </div>
+
+
 </body>
 
 </html>

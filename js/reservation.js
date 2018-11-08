@@ -1,7 +1,39 @@
+// 获取日期信息，并将其定义为全局变量以供使用
+const MorningTime = 8;  // 定义上午可以租借的开始时间
+const AfternoonTime = 14; // 定义下午可以租借的开始时间
+function get_date_json(AddDayCount) {
+  let dd = new Date();
+  dd.setDate(dd.getDate() + AddDayCount);//获取AddDayCount天后的日期  
+  let week_index = dd.getDay();
+  let month = (dd.getMonth() + 1) < 10 ? "0" + (dd.getMonth() + 1) : (dd.getMonth() + 1).toString();//获取当前月份的日期，不足10补0  
+  let day = dd.getDate() < 10 ? "0" + dd.getDate() : dd.getDate().toString();//获取当前几号，不足10补0  
+  let year = dd.getFullYear();
+  let date_json = {
+    year: year,
+    week_index: week_index,
+    month: month,
+    day: day
+  };
+  return date_json;
+}
+// 将最近7天的日期信息按照 星期顺序（从周日开始） 存放在futer_date数组中
+var future_date = new Array(7);
+for (var i = 1; i < 8; i++) {
+  let index = get_date_json(i).week_index;
+  future_date[index] = get_date_json(i);
+}
+// 格式化 future_date （将周日的日期放在数组的最后一位，且将周日的week_index由原来的0改为7）
+future_date[0].week_index = 7;
+future_date = future_date.slice(1).concat(future_date.slice(0, 1));
+
+
+
+
+
+// 文档加载完毕执行
 $(document).ready(function () {
   // 获取时间
-  const MorningTime = 8;  // 定义上午可以租借的开始时间
-  const AfternoonTime = 14; // 定义下午可以租借的开始时间
+
   const [time_1, time_2, time_3, time_4] = [MorningTime, MorningTime + 4, AfternoonTime, AfternoonTime + 4];
   const now_time = new Date();
   const hh = now_time.getHours() < 10 ? "0" + now_time.getHours() : now_time.getHours().toString();
@@ -20,54 +52,44 @@ $(document).ready(function () {
   $(".show_detail").click(function () {
     $("#model_show_detail").css("display", "block");
     $("#model_show_detail .model_auto_content").scrollTop("0");
-    $("#model_show_detail").animate({ "opacity": "1" }, 500);
+    $("#model_show_detail").animate({ "opacity": "1" }, 200);
   });
 
   // 用户点击 close 按钮时关闭模态框
   $(".model_auto_close").click(function () {
-    let $model_auto_box = $(this).parents(".model_auto_box");
-    $model_auto_box.animate({ "opacity": "0" }, 500, function () {
+    let $model_auto_box = $(this).parents(".model_auto_box").eq(0);
+    $model_auto_box.animate({ "opacity": "0" }, 200, function () {
       $model_auto_box.css({ "display": "none" });
     });
   })
+
   //用户点击模态框外部隐藏模态框
   $(".model_auto").click(function (e) {
     // 阻止冒泡
     e.stopPropagation();
   })
+  $("#model_submit").click(function (e) {
+    // 阻止冒泡
+    e.stopPropagation();
+  })
   $(".model_auto_box").click(function (e) {
-    $(this).animate({ "opacity": "0" }, 500, function () {
+    $(this).animate({ "opacity": "0" }, 200, function () {
       $(this).css({ "display": "none" });
     });
     return false;
   })
 
+  // 固定预约模态框的布局
+  $('#morning').children('.select').each(function (i) {
+    let left = 91 + i * 105 + 'px'
+    $(this).css('left', left);
+  })
+  $('#afternoon').children('.select').each(function (i) {
+    let left = 91 + i * 105 + 'px'
+    $(this).css('left', left);
+  })
 
 
-  
-  // 预约模态框显示日期
-  function get_date_json(AddDayCount) {
-    let dd = new Date();
-    dd.setDate(dd.getDate() + AddDayCount);//获取AddDayCount天后的日期  
-    let week_index = dd.getDay();
-    let month = (dd.getMonth() + 1) < 10 ? "0" + (dd.getMonth() + 1) : (dd.getMonth() + 1).toString();//获取当前月份的日期，不足10补0  
-    let day = dd.getDate() < 10 ? "0" + dd.getDate() : dd.getDate().toString();//获取当前几号，不足10补0  
-    let date_json = {
-      week_index: week_index,
-      month: month,
-      day: day
-    };
-    return date_json;
-  }
-  // 将最近7天的日期信息按照 星期顺序（从周日开始） 存放在futer_date数组中
-  var future_date = new Array(7);
-  for (var i = 1; i < 8; i++) {
-    let index = get_date_json(i).week_index;
-    future_date[index] = get_date_json(i);
-  }
-  // 格式化 future_date （将周日的日期放在数组的最后一位，且将周日的week_index由原来的0改为7）
-  future_date[0].week_index = 7;
-  future_date = future_date.slice(1).concat(future_date.slice(0, 1));
   // 记录今天的week_index(如周三的week_index为3，做判断是为了要设置周日的week_index为7)
   var today_index = get_date_json(0).week_index == 0 ? 7 : get_date_json(0).week_index;
   // 渲染日期进度条
@@ -122,9 +144,11 @@ $(document).ready(function () {
     }
   }
   $('#time_now_text').hover(function () {
+    $('#time_now_text').css({background: '#FF5722', color: 'white'});
     $('#now_time_text').css('opacity', '1');
     $('.time_tag').css('opacity', '0');
   }, function () {
+    $('#time_now_text').css({background: 'rgba(0,0,0,0.1)', color: 'rgba(0,0,0,0.5)'});
     $('#now_time_text').css('opacity', '0');
     $('.time_tag').css('opacity', '1');
   })

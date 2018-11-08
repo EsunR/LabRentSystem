@@ -162,6 +162,11 @@
     text-align: justify
 }
 
+
+
+
+
+
 /* model: reservation panel */
 #reservation_panel .model_auto{
     width: 920px;
@@ -306,8 +311,9 @@
   width: 105px;
   height: 200px;
   box-sizing: border-box;
-  position: relative;
+  position: absolute;
   border-radius: 5px;
+  display: none;
 }
 .select div{
   border-radius: 5px;
@@ -341,6 +347,13 @@
   background: #D8D8D8;
   cursor: pointer;
 }
+.disable{
+  background: #E5E5E5;
+  cursor: not-allowed;
+}
+.disable span{
+  color: rgba(0, 0, 0, 0.2);
+}
 .r-1{
   height: 40px;
 }
@@ -353,5 +366,90 @@
 .r-8{
   height: 412px;
 }
+  /* 二级提交模态框 */
+#model_submit_box{
+  width: 920px;
+  height: 630px;
+  position: absolute;
+  z-index: 20;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.2);
+}
+#model_submit{
+  width: 500px;
+  height: 300px;
+  background: white;
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  margin: auto;
+  border-radius: 10px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+#model_submit span{
+  font-size: 1.25rem;
+}
+.res_message{
+  font-size: 1rem;
+  color: rgba(0,0,0,0.7);
+  line-height: 40px;
+  text-align: center;
+}
+.res_message span{
+  font-size: 1rem !important;
+  color: rgba(0,0,0,0.7);
+  font-weight: bold;
+}
 
+#res_sure_text{
+  display: block;
+  text-align: center;
+  font-size: 1rem;
+  height: 30px;
+  width: 150px;
+  margin: 10px auto;
+  border-radius: 10px;
+  border: solid 1px rgba(0, 0, 0, 0.5);
+  font-weight: bold;
+}
+#res_sure_btn{
+  width: 100px;
+  height: 40px;
+  font-size: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  display: block;
+  margin: 0 auto;
+  margin-top: 20px;
+  border: none;
+  background: #0C75D6;
+  color: white;
+  cursor: pointer;
+}
+#res_sure_btn:hover{
+  background: #085AA4;
+}
 
+/* 提醒弹窗 */
+#alert_box{
+  float: left; 
+  position: absolute;
+  left: 50%; 
+  bottom: 100px;
+  z-index: 999;
+}
+#alert{
+  padding: 10px 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  background: #DB3544;
+  color: white;
+  text-align: center;
+  position: relative;
+  left: -50%;
+  display: none;
+}

@@ -1,7 +1,7 @@
 $(document).ready(function () {
   // res_time: 某样品某一时间段的预约时间
   // res_count: 该样品当前时间段可预约的数量
-  var res_time, res_count;
+  var res_time, res_count, instrument;
 
   $('.res_card_btn').click(function () {
     // 0. 清除原有的表格数据
@@ -13,56 +13,32 @@ $(document).ready(function () {
     $("#reservation_panel").css("display", "block");
     $("#reservation_panel").animate({ "opacity": "1" }, 200);
 
+    let id = parseInt($(this).attr('id'));
+
     // 2. 获取当前仪器的信息
     // TODO: Ajax GET 数据 ============================================== 数据入口
-    var instrument = {
-      id: '1',
-      serviceTime: '1',
-      sampleCount: '4',
-      servicetimeArray: ['11', '12', '21', '62', '71', '72']
+    switch (id) {
+      case 1:
+        instrument = {
+          id: '1',
+          serviceTime: '1',
+          sampleCount: '4',
+          servicetimeArray: ['11', '12', '21', '62', '71', '72']
+        };
+        break;
+      case 2:
+        instrument = {
+          id: '2',
+          serviceTime: '2',
+          sampleCount: '4',
+          servicetimeArray: ['12', '21','32', '62', '71']
+        };
+        break;
     }
+    console.log(instrument);
     // 3. 渲染预约表格
     Render(instrument);
 
-    
-
-    // 4. 点击"提交预约"按钮, 处理POST的信息
-    $('#res_sure_btn').click(function () {
-      // 为传出数据做好准备
-      let post_id = instrument.id;                //预约仪器的ID
-      let post_time = res_time;                   //预约时间
-      let post_count = $('#res_sure_text').val(); //预约数量
-      // 输入校验
-      if (/^\d+$/.test(post_count) && post_count != 0) {
-        if (post_count > res_count) {
-          $('#alert').text("预约数量大于现有的样本数量！")
-          $('#alert').fadeIn(200).delay(1300).fadeOut(200);
-          $('#res_sure_text').val('');
-          return false;
-        } else {
-          // TODO: Ajax POST 数据  ====================================== 数据出口
-          instrument.sampleCount -= post_count;
-          let post_data = {
-            id: post_id,      // 预约样品的ID
-            time: post_time,  // 预约的时间
-            count: post_count // 预约的数量
-          }
-          console.log('post_data: ', post_data);
-        }
-      } else {
-        $('#alert').text("数量填写格式错误！")
-        $('#alert').fadeIn(200).delay(1000).fadeOut(200);
-        $('#res_sure_text').val('');
-        return false;
-      }
-      // 隐藏模态框
-      $('#model_submit_box').animate({ "opacity": "0" }, 200, function () {
-        $('#model_submit_box').css({ "display": "none" });
-      });
-      // 同步刷新预约表格
-      $('#res_sure_text').val('');
-      Render(instrument);
-    })
   })
 
 
@@ -197,8 +173,48 @@ $(document).ready(function () {
       $("#model_submit_box").css("display", "block");
       $("#model_submit_box").animate({ "opacity": "1" }, 200);
     })
-    
+
   }
+
+
+  // 提交按钮
+  // 4. 点击"提交预约"按钮, 处理POST的信息
+  $('#res_sure_btn').click(function () {
+    // 为传出数据做好准备
+    let post_id = instrument.id;                //预约仪器的ID
+    let post_time = res_time;                   //预约时间
+    let post_count = $('#res_sure_text').val(); //预约数量
+    // 输入校验
+    if (/^\d+$/.test(post_count) && post_count != 0) {
+      if (post_count > res_count) {
+        $('#alert').text("预约数量大于现有的样本数量！")
+        $('#alert').fadeIn(200).delay(1300).fadeOut(200);
+        $('#res_sure_text').val('');
+        return false;
+      } else {
+        // TODO: Ajax POST 数据  ====================================== 数据出口
+        instrument.sampleCount -= post_count;
+        let post_data = {
+          id: post_id,      // 预约样品的ID
+          time: post_time,  // 预约的时间
+          count: post_count // 预约的数量
+        }
+        console.log('post_data: ', post_data);
+      }
+    } else {
+      $('#alert').text("数量填写格式错误！")
+      $('#alert').fadeIn(200).delay(1000).fadeOut(200);
+      $('#res_sure_text').val('');
+      return false;
+    }
+    // 隐藏模态框
+    $('#model_submit_box').animate({ "opacity": "0" }, 200, function () {
+      $('#model_submit_box').css({ "display": "none" });
+    });
+    // 同步刷新预约表格
+    $('#res_sure_text').val('');
+    Render(instrument);
+  })
 
 
   // TODO: 插入checkTimes函数

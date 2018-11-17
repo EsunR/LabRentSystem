@@ -32,6 +32,7 @@ body{
     color: white;
     overflow: hidden;
     box-shadow: 0px 0px 10px rgba(0,0,0,0.8);
+    position: relative;
 }
 #inner{
     width: 100%;
@@ -41,10 +42,44 @@ body{
 #title{
     text-align: center;
     font-size: 4rem;
-    padding-top: 65px;
-    padding-bottom: 55px;
     opacity: 0.9;
-    border-bottom: 20px solid rgb(255, 255, 255);
+    line-height: 250px;
+}
+/* primy: #107BFD */
+
+#user_box{
+  /* background: rgba(225,225,225,1); */
+  background: white;
+  line-height: 35px;
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.8);
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  border-radius: 5px;
+  font-size: 1rem;
+  overflow: hidden;
+  z-index: 2;
+  cursor: default;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
+}
+#user_name{
+  color: rgba(0, 0, 0, 0.7);
+  float: left;
+  font-weight: bold;
+  padding: 0 10px;
+}
+#logout_btn{
+  float: right;
+  display: block;
+  background: #107BFD;
+  border: none;
+  color: white;
+  height: 35px;
+  padding: 0 10px;
+  cursor: pointer;
+}
+#logout_btn:hover{
+  background: rgb(11, 96, 201);
 }
 
 /* nav bar */
